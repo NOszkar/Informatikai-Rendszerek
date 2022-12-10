@@ -17,10 +17,28 @@ namespace Gyak5
     public partial class Form1 : Form
     {
         public BindingList<RateData> Rates = new BindingList<RateData>();
+        public BindingList<string> Currencies = new BindingList<string>();
 
         public Form1()
         {
             InitializeComponent();
+            
+            var mnbService = new MNBArfolyamServiceSoapClient();
+            var gcrb = new GetCurrenciesRequestBody() { };
+            var response = mnbService.GetCurrencies(gcrb);
+            var result = response.GetCurrenciesResult;
+
+            var xml = new XmlDocument();
+            xml.LoadXml(result);
+
+            foreach(XmlElement element in xml.DocumentElement)
+            {
+                foreach(XmlElement e in element)
+                {
+                    Currencies.Add(e.InnerText);
+                }
+            }
+
             RefreshData();
         }
 
@@ -29,9 +47,6 @@ namespace Gyak5
             Rates.Clear();
 
             var mnbService = new MNBArfolyamServiceSoapClient();
-
-            Console.WriteLine(dateTimePicker1.Text);
-
             var request = new GetExchangeRatesRequestBody()
             {
                 currencyNames = comboBox1.Text,
@@ -65,6 +80,8 @@ namespace Gyak5
 
                 // Valuta
                 var childElement = (XmlElement)element.ChildNodes[0];
+                if (childElement == null)
+                    continue;
                 rate.Currency = childElement.GetAttribute("curr");
 
                 // Érték
@@ -100,6 +117,7 @@ namespace Gyak5
             string result = RequestData();
             ProcessXML(result);
             dataGridView1.DataSource = Rates;
+            comboBox1.DataSource = Currencies;
             showDiagram(result);
         }
 
