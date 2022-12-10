@@ -8,3 +8,4 @@ C:\Projects\Informatikai-Rendszerek\Gyak5\Gyak5\obj\Debug\Gyak5.csproj.GenerateR
 C:\Projects\Informatikai-Rendszerek\Gyak5\Gyak5\obj\Debug\Gyak5.csproj.CoreCompileInputs.cache
 C:\Projects\Informatikai-Rendszerek\Gyak5\Gyak5\obj\Debug\Gyak5.exe
 C:\Projects\Informatikai-Rendszerek\Gyak5\Gyak5\obj\Debug\Gyak5.pdb
+C:\Projects\Informatikai-Rendszerek\Gyak5\Gyak5\obj\Debug\Gyak5.Form1.resources
