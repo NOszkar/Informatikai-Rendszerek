@@ -26,6 +26,7 @@ namespace Gyak4
         {
             InitializeComponent();
             LoadData();
+            CreateExcel();
         }
 
         private void LoadData()
@@ -83,6 +84,14 @@ namespace Gyak4
             for (int i = 0; i < headers.Length; i++)
             {
                 xlSheet.Cells[1, 1] = headers[0];
+                xlSheet.Cells[1, 2] = headers[1];
+                xlSheet.Cells[1, 3] = headers[2];
+                xlSheet.Cells[1, 4] = headers[3];
+                xlSheet.Cells[1, 5] = headers[4];
+                xlSheet.Cells[1, 6] = headers[5];
+                xlSheet.Cells[1, 7] = headers[6];
+                xlSheet.Cells[1, 8] = headers[7];
+                xlSheet.Cells[1, 9] = headers[8];
             }
 
             object[,] values = new object[Flats.Count, headers.Length];
@@ -97,13 +106,34 @@ namespace Gyak4
                 values[counter, 5] = f.NumberOfRooms;
                 values[counter, 6] = f.FloorArea;
                 values[counter, 7] = f.Price;
-                values[counter, 8] = "=" + GetCell(counter, 8) + "/" + GetCell(counter, 7);
+                values[counter, 8] = "=" + GetCell(counter + 2, 8) + "/" + GetCell(counter + 2, 7);
                 counter++;
             }
 
             xlSheet.get_Range(
             GetCell(2, 1),
             GetCell(1 + values.GetLength(0), values.GetLength(1))).Value2 = values;
+
+            Excel.Range headerRange = xlSheet.get_Range(GetCell(1, 1), GetCell(1, headers.Length));
+            headerRange.Font.Bold = true;
+            headerRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+            headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+            headerRange.EntireColumn.AutoFit();
+            headerRange.RowHeight = 40;
+            headerRange.Interior.Color = Color.LightBlue;
+            headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+
+            int lastRowID = xlSheet.UsedRange.Rows.Count;
+
+            Excel.Range tableRange = xlSheet.get_Range(GetCell(1, 1), GetCell(lastRowID, 9));
+            tableRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+
+            Excel.Range firstColumn = xlSheet.get_Range(GetCell(2, 1), GetCell(lastRowID, 1));
+            firstColumn.Font.Bold = true;
+
+            Excel.Range lastColumn = xlSheet.get_Range(GetCell(2, 9), GetCell(lastRowID, 9));
+            lastColumn.Interior.Color = Color.LightGreen;
+            lastColumn.NumberFormat = "0.00";
         }
 
         private string GetCell(int x, int y)
