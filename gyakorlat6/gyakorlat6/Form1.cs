@@ -17,6 +17,7 @@ namespace gyakorlat6
         PortfolioEntities context = new PortfolioEntities();
         List<Tick> Tick;
         List<PortfolioItem> Portfolio = new List<PortfolioItem>();
+        List<decimal> Nyereségek = new List<decimal>();
 
         public Form1()
         {
@@ -25,7 +26,7 @@ namespace gyakorlat6
             dataGridView1.DataSource = Tick;
             CreatePortfolio();
 
-            List<decimal> Nyereségek = new List<decimal>();
+           
             int intervalum = 30;
             DateTime kezdőDátum = (from x in Tick select x.TradingDay).Min();
             DateTime záróDátum = new DateTime(2016, 12, 30);
@@ -43,16 +44,7 @@ namespace gyakorlat6
                                       select x)
                                         .ToList();
             // MessageBox.Show(nyereségekRendezve[nyereségekRendezve.Count() / 5].ToString());
-            SaveFileDialog sfv = new SaveFileDialog();
-                sfv.ShowDialog();
-            StreamWriter sw = new StreamWriter(sfv.FileName);
-            {
-                sw.WriteLine("Időszak" + " " + "Nyereség");
-                for (int i = 0; i < Nyereségek.Count; i++)
-                {
-                    sw.WriteLine(i.ToString() + " " + Nyereségek[i].ToString());
-                }
-            }
+            
         }
 
         private void CreatePortfolio()
@@ -81,7 +73,21 @@ namespace gyakorlat6
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Mentes();
+        }
 
+        private void Mentes()
+        {
+            SaveFileDialog sfv = new SaveFileDialog();
+            sfv.ShowDialog();
+            StreamWriter sw = new StreamWriter(sfv.FileName);
+            {
+                sw.WriteLine("Időszak" + " " + "Nyereség");
+                for (int i = 0; i < Nyereségek.Count; i++)
+                {
+                    sw.WriteLine(i.ToString() + " " + Nyereségek[i].ToString());
+                }
+            }
         }
     }
 }
