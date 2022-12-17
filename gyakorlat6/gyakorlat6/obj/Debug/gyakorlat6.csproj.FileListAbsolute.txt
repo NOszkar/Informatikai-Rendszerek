@@ -1,0 +1,15 @@
+C:\Users\GUGX7R\source\repos\IRF\gyakorlat6\gyakorlat6\bin\Debug\gyakorlat6.exe.config
+C:\Users\GUGX7R\source\repos\IRF\gyakorlat6\gyakorlat6\bin\Debug\gyakorlat6.exe
+C:\Users\GUGX7R\source\repos\IRF\gyakorlat6\gyakorlat6\bin\Debug\gyakorlat6.pdb
+C:\Users\GUGX7R\source\repos\IRF\gyakorlat6\gyakorlat6\bin\Debug\EntityFramework.dll
+C:\Users\GUGX7R\source\repos\IRF\gyakorlat6\gyakorlat6\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\GUGX7R\source\repos\IRF\gyakorlat6\gyakorlat6\bin\Debug\EntityFramework.xml
+C:\Users\GUGX7R\source\repos\IRF\gyakorlat6\gyakorlat6\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\GUGX7R\source\repos\IRF\gyakorlat6\gyakorlat6\obj\Debug\gyakorlat6.csproj.AssemblyReference.cache
+C:\Users\GUGX7R\source\repos\IRF\gyakorlat6\gyakorlat6\obj\Debug\gyakorlat6.Form1.resources
+C:\Users\GUGX7R\source\repos\IRF\gyakorlat6\gyakorlat6\obj\Debug\gyakorlat6.Properties.Resources.resources
+C:\Users\GUGX7R\source\repos\IRF\gyakorlat6\gyakorlat6\obj\Debug\gyakorlat6.csproj.GenerateResource.cache
+C:\Users\GUGX7R\source\repos\IRF\gyakorlat6\gyakorlat6\obj\Debug\gyakorlat6.csproj.CoreCompileInputs.cache
+C:\Users\GUGX7R\source\repos\IRF\gyakorlat6\gyakorlat6\obj\Debug\gyakorlat6.csproj.CopyComplete
+C:\Users\GUGX7R\source\repos\IRF\gyakorlat6\gyakorlat6\obj\Debug\gyakorlat6.exe
+C:\Users\GUGX7R\source\repos\IRF\gyakorlat6\gyakorlat6\obj\Debug\gyakorlat6.pdb
